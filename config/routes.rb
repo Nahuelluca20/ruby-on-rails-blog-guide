@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   root "articles#index"
 
-  get "/articles", to: "articles#index"
-  get "/articles/:id" to: "articles#show"
-
+  # resources map 7 HTTP verbs
+  # GET       /articles
+  # GET       /articles/new
+  # POST      /articles
+  # GET       /articles/:id
+  # GET       /articles/:id/edit
+  # PATCH/PUT /articles/:id
+  # DELETE    /articles/:id
+  resources :articles
   get "up" => "rails/health#show", as: :rails_health_check
 
 end
