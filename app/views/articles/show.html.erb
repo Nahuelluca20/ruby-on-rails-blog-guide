@@ -1,4 +1,10 @@
-<h1><%= @article.title %></h1>
-<h2><%= @article.slug %></h2>
-
-<p><%= @article.body %></p>
+<h2 class="text-sky-700"><%= @article.slug %></h2>
+<div class="card w-96 bg-[#1D232A] shadow-xl rounded-lg">
+  <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+  <div class="pb-2 px-3 text-white">
+    <h2 class="card-title text-white"><%= @article.title %></h2>
+    <p><%= @article.body %></p>
+    <div class="flex justify-end">
+      <button class="h-[3rem] px-2 rounded-md font-bold text-[#2B306A] bg-[#646EE4]">Buy Now</button>
+    </div>
+  </div>
