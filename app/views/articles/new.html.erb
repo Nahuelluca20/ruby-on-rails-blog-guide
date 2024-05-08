@@ -1,18 +1,29 @@
-<h1>Create Note</h1>
+<h1 class="text-blue-800 mb-10">New Article</h1>
 <%= form_with model: @article do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="flex flex-col gap-10">
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+      <% @article.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.label :slug %><br>
+      <%= form.text_field :slug %><br>
+      <% @article.errors.full_messages_for(:slug).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %><br>
+      <% @article.errors.full_messages_for(:body).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
   </div>
-  <div>
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
-  </div>
-  <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<%end%>
+<% end %>
