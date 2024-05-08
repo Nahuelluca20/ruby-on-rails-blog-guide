@@ -21,6 +21,19 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params) 
+      redirect_to @article
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end  
 
   # Using a private method to encapsulate the permissible parameters
   # is just a good pattern since you'll be able to reuse the same

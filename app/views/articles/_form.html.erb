@@ -1,0 +1,24 @@
+<%= form_with model: article, class: "flex flex-col gap-2" do |form| %>
+  <div>
+    <%= form.label :title, class: "text-white" %><br>
+    <%= form.text_field :title, class: "rounded-md" %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div class="text-red-700"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :slug, class: "text-white" %><br>
+    <%= form.text_field :slug, class: "rounded-md" %><br>
+    <% article.errors.full_messages_for(:slug).each do |message| %>
+      <div class="text-red-700"><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :body, class: "text-white" %><br>
+    <%= form.text_area :body, class: "rounded-md" %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div class="text-red-700"><%= message %></div>
+    <% end %>
+  </div>
+  <%= form.submit "Create", class: "cursor-pointer border-blue-800 max-w-[130px] flex justify-center bg-blue-700 text-white rounded-lg text-center" %>
+<% end %>
