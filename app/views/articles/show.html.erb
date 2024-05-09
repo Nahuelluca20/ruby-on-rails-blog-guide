@@ -1,14 +1,33 @@
-<h2 class="text-sky-700"><%= @article.slug %></h2>
-<div class="card w-96 bg-[#1D232A] shadow-xl rounded-lg">
-  <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div class="pb-2 px-3 text-white">
-    <h2 class="card-title text-white"><%= @article.title %></h2>
-    <p><%= @article.body %></p>
-    <div class="flex justify-end gap-2">
-      <%= link_to "Edit post", edit_article_path(@article), class: "flex items-center no-underline h-[3rem] px-2 rounded-md font-bold text-[#2B306A] bg-[#646EE4]" %>
-      <%= link_to "Delete post", article_path(@article), data: {
+<section class="flex items-center gap-10 justify-center">
+  <div>
+    <h2 class="text-cyan-400"><%= @article.slug %></h2>
+    <div class="card w-96 bg-[#1D232A] shadow-xl rounded-lg">
+      <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+      <div class="pb-2 px-3 text-white">
+        <h2 class="card-title text-white"><%= @article.title %></h2>
+        <p><%= @article.body %></p>
+        <div class="flex justify-end gap-2">
+          <%= link_to "Edit post", edit_article_path(@article), class: "flex items-center no-underline h-[3rem] px-2 rounded-md font-bold text-[#2B306A] bg-[#646EE4]" %>
+          <%= link_to "Delete post", article_path(@article), data: {
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"
       }, class: "flex items-center no-underline h-[3rem] px-2 rounded-md font-bold text-white bg-red-500" %>
+        </div>
+      </div>
     </div>
   </div>
+  <div>
+    <h2 class="text-white">Add a comment:</h2>
+    <%= form_with model: [ @article, @article.comments.build ], class: "flex flex-col gap-2" do |form| %>
+      <p>
+        <%= form.label :commenter, class: "text-white" %><br>
+        <%= form.text_field :commenter, class: "rounded-md" %>
+      </p>
+      <p>
+        <%= form.label :body,class: "text-white" %><br>
+        <%= form.text_area :body, class: "rounded-md" %>
+      </p>
+      <%= form.submit "Add comment", class: "cursor-pointer border-blue-800 max-w-[130px] flex justify-center bg-blue-700 text-white rounded-lg text-center" %>
+    <% end %>
+  </div>
+</section>

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # GET       /articles/:id/edit
   # PATCH/PUT /articles/:id
   # DELETE    /articles/:id
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   get "up" => "rails/health#show", as: :rails_health_check
 
 end
