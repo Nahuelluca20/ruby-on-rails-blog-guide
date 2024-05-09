@@ -35,6 +35,13 @@ class ArticlesController < ApplicationController
     end
   end  
 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   # Using a private method to encapsulate the permissible parameters
   # is just a good pattern since you'll be able to reuse the same
   # permit list between create and update. Also, you can specialize
