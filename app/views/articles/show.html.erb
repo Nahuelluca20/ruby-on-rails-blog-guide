@@ -18,7 +18,7 @@
   </div>
   <div>
     <h2 class="text-white">Add a comment:</h2>
-    <%= form_with model: [ @article, @article.comments.build ], class: "flex flex-col gap-2" do |form| %>
+    <%= form_with model: [ @article, Comment.new ], class: "flex flex-col gap-2" do |form| %>
       <p>
         <%= form.label :commenter, class: "text-white" %><br>
         <%= form.text_field :commenter, class: "rounded-md" %>
