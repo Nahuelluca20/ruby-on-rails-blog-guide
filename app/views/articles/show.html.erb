@@ -31,3 +31,18 @@
     <% end %>
   </div>
 </section>
+<h2 class="text-white">Comments</h2>
+<section class="space-y-4">
+  <% @article.comments.each do |comment| %>
+    <div class="w-full p-2 bg-[#1D232A] shadow-xl rounded-lg">
+      <p class="text-white">
+        <strong class="text-gray-400">Commenter:</strong>
+        <%= comment.commenter %>
+      </p>
+      <p class="text-white">
+        <strong class="text-gray-400">Comment:</strong>
+        <%= comment.body %>
+      </p>
+    </div>
+  <% end %>
+</div>
