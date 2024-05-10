@@ -18,31 +18,10 @@
   </div>
   <div>
     <h2 class="text-white">Add a comment:</h2>
-    <%= form_with model: [ @article, Comment.new ], class: "flex flex-col gap-2" do |form| %>
-      <p>
-        <%= form.label :commenter, class: "text-white" %><br>
-        <%= form.text_field :commenter, class: "rounded-md" %>
-      </p>
-      <p>
-        <%= form.label :body,class: "text-white" %><br>
-        <%= form.text_area :body, class: "rounded-md" %>
-      </p>
-      <%= form.submit "Add comment", class: "cursor-pointer border-blue-800 max-w-[130px] flex justify-center bg-blue-700 text-white rounded-lg text-center" %>
-    <% end %>
+    <%= render 'comments/form' %>
   </div>
 </section>
 <h2 class="text-white">Comments</h2>
 <section class="space-y-4">
-  <% @article.comments.each do |comment| %>
-    <div class="w-full p-2 bg-[#1D232A] shadow-xl rounded-lg">
-      <p class="text-white">
-        <strong class="text-gray-400">Commenter:</strong>
-        <%= comment.commenter %>
-      </p>
-      <p class="text-white">
-        <strong class="text-gray-400">Comment:</strong>
-        <%= comment.body %>
-      </p>
-    </div>
-  <% end %>
+  <%= render @article.comments %>
 </div>
