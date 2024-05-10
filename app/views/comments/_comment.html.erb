@@ -8,5 +8,11 @@
       <strong class="text-gray-400">Comment:</strong>
       <%= comment.body %>
     </p>
+    <p class="w-full flex justify-end">
+      <%= link_to "Delete Comment", [comment.article, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                }, class: "max-w-[160px] text-center justify-center flex items-center no-underline h-[3rem] px-2 rounded-md font-bold text-white bg-red-500"%>
+    </p>
   </div>
 <% end %>
