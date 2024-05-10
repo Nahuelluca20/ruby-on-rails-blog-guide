@@ -20,5 +20,9 @@
       <div class="text-red-700"><%= message %></div>
     <% end %>
   </div>
+  <div>
+    <%= form.label :status, class: "text-white" %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: article.status || 'public' }, class: "rounded-md" %>
+  </div>
   <%= form.submit "Create", class: "cursor-pointer border-blue-800 max-w-[130px] flex justify-center bg-blue-700 text-white rounded-lg text-center" %>
 <% end %>

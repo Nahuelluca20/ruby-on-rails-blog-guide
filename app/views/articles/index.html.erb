@@ -1,4 +1,7 @@
 <h1 class="text-white">Articles</h1>
+<p class="text-white">
+  Our blog has <%= Article.public_count %> articles and counting!
+</p>
 <ul>
   <% @articles.each do |article| %>
     <% unless article.archived? %>

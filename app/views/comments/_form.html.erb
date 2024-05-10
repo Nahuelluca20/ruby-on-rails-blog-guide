@@ -1,4 +1,4 @@
-<%= form_with model: [ @article, Comment.new ], class: "flex flex-col gap-2" do |form| %>
+<%= form_with model: [ @article, Comment.new ], class: "flex flex-col gap-1" do |form| %>
   <p>
     <%= form.label :commenter, class: "text-white" %><br>
     <%= form.text_field :commenter, class: "rounded-md" %>
@@ -6,6 +6,10 @@
   <p>
     <%= form.label :body,class: "text-white" %><br>
     <%= form.text_area :body, class: "rounded-md" %>
+  </p>
+  <p>
+    <%= form.label :status, class: "text-white" %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: 'public' }, class: "rounded-md" %>
   </p>
   <%= form.submit "Add comment", class: "cursor-pointer border-blue-800 max-w-[130px] flex justify-center bg-blue-700 text-white rounded-lg text-center" %>
 <% end %>
